@@ -42,7 +42,7 @@ enum PrimitiveType
 //图形顶点结构
 struct  stShapeVertices
 {
-	kmVec3 		Position;	//位置
+	Vec3 		Position;	//位置
 	//kmVec3		Normal;	 	//法线
 	//kmVec3		Color;		//色彩
 }

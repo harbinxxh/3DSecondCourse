@@ -7,7 +7,7 @@
 //红孩儿3D引擎开发课堂 QQ群：275220292
 //=========================================================================
 #include "cocos2d.h"
-#include "C3DShape.h";
+#include "C3DShape.h"
 USING_NS_CC;
 
 class C3DLayer :public Layer

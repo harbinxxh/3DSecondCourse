@@ -60,10 +60,10 @@ void C3DLayer::draw(Renderer *renderer, const Mat4& transform, uint32_t flags)
 void	C3DLayer::UpdateViewProjMatrix()
 {
 	//观察矩阵的设置
-	kmVec3 tEyeResult = kmVec3(0,0,-2);
-	kmVec3 tLookAtResult = kmVec3(0,0,0);
-	kmVec3 tUpResult = kmVec3(0,1,0);
-	kmMat4 tViewMatrix;
+	Vec3 tEyeResult = Vec3(0,0,-2);
+	Vec3 tLookAtResult = Vec3(0,0,0);
+	Vec3 tUpResult = Vec3(0,1,0);
+	Mat4 tViewMatrix;
 	kmMat4LookAt(&tViewMatrix, &tEyeResult, &tLookAtResult, &tUpResult);
     
 	kmGLMatrixMode(KM_GL_MODELVIEW);
@@ -71,7 +71,7 @@ void	C3DLayer::UpdateViewProjMatrix()
 	kmGLMultMatrix(&tViewMatrix);
     
 	//投影矩阵的设置
-	kmMat4 matrixPerspective;
+	Mat4 matrixPerspective;
 	kmGLMatrixMode(KM_GL_PROJECTION);
 	kmGLLoadIdentity();
 	CCSize size =  CCDirector::sharedDirector()->getVisibleSize();
