@@ -120,6 +120,46 @@ void	C3DShape::CreateTriangles()
 	BuildShader();
 }
 
+//创建自定义三角形
+void    C3DShape::CreateCostomTriangle()
+{
+    Release();
+    //创建VB与IB
+    glGenBuffers(1, &m_VertexBuffer);
+	glGenBuffers(1, &m_IndexBuffer);
+    //创建顶点数组
+	m_VertexArray = new stShapeVertices[4];
+	m_VertexArray[0].Position = Vec3(0,1,0);
+	m_VertexArray[1].Position = Vec3(-1,-1,0);
+	m_VertexArray[2].Position = Vec3(1,-1,0);
+//	m_VertexArray[3].Position = Vec3(-1,-1,0);
+    
+    //创建索引数组
+	m_IndiceArray = new GLushort[3];
+	m_IndiceArray[0] = 0;
+	m_IndiceArray[1] = 1;
+	m_IndiceArray[2] = 2;
+//	m_IndiceArray[3] = 0;
+//	m_IndiceArray[4] = 2;
+//	m_IndiceArray[5] = 3;
+	m_VertexCount = 3;
+	m_IndexCount  = 3;
+	m_PrimitiveType = PT_TRIANGLE_STRIP;
+    
+	//绑定数据到VB中。
+	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER,
+                 m_VertexCount * sizeof(stShapeVertices),
+                 m_VertexArray,
+                 GL_STATIC_DRAW);
+    
+	//绑定数据到IB中。
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_IndexCount*sizeof(GLushort), m_IndiceArray, GL_STATIC_DRAW);
+    
+    BuildShader();
+}
+
 //创建多个点
 void    C3DShape::CreateMultiPoints()
 {

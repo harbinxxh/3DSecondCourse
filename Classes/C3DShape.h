@@ -65,6 +65,8 @@ public:
 	void	CreateTriangles();
     //创建多个点
     void    CreateMultiPoints();
+    //costom三角形
+    void    CreateCostomTriangle();
 	
 public:
 	//创建Shader
