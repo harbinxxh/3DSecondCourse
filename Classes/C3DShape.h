@@ -67,6 +67,8 @@ public:
     void    CreateMultiPoints();
     //costom三角形
     void    CreateCostomTriangle();
+    //绘制迷宫
+    void    CreatePuzzle();
 	
 public:
 	//创建Shader

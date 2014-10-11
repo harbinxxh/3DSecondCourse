@@ -202,6 +202,72 @@ void    C3DShape::CreateMultiPoints()
 	BuildShader();
 }
 
+//绘制迷宫 **********************************
+void    C3DShape::CreatePuzzle()
+{
+    Release();
+	//创建VB与IB
+	glGenBuffers(1, &m_VertexBuffer);
+	glGenBuffers(1, &m_IndexBuffer);
+	//创建顶点数组
+	m_VertexArray = new stShapeVertices[2];
+    m_VertexArray[0].Position = Vec3(1,1,0);
+	m_VertexArray[1].Position = Vec3(1,-1,0);
+//	m_VertexArray[0].Position = Vec3(-1,-1,0);
+//	m_VertexArray[1].Position = Vec3(-1,1,0);
+//	m_VertexArray[2].Position = Vec3(1,1,0);
+//	m_VertexArray[3].Position = Vec3(1,-1,0);
+//	m_VertexArray[4].Position = Vec3(-1,-1,0);
+    
+    //创建索引数组
+//	m_IndiceArray = new GLushort[5];
+//	m_IndiceArray[0] = 0;
+//	m_IndiceArray[1] = 1;
+//	m_IndiceArray[2] = 2;
+//	m_IndiceArray[3] = 3;
+//	m_IndiceArray[4] = 4;
+    
+    //创建数组并填充数据
+//	m_VertexArray = new stShapeVertices[100];
+//	int _count=0;
+//    //可以正常显示十行十列点
+//    float row = -1.0;
+//    for (int i = 1; i <= 10; ++i) {
+//        float col = -1.0;
+//        for (int j = 1; j <= 10; ++j) {
+//            m_VertexArray[_count++].Position = Vec3(row,col,0);
+//            col = col + 0.2;
+//        }
+//        row = row + 0.2;
+//    }
+    
+    
+	//创建索引数组
+	m_IndiceArray = new GLushort[2];
+	m_IndiceArray[0] = 0;
+	m_IndiceArray[1] = 1;
+//	m_IndiceArray[2] = 1;
+//	m_IndiceArray[3] = 2;
+//	m_IndiceArray[4] = 3;
+    
+	m_VertexCount = 2;
+	m_IndexCount  = 2;
+	m_PrimitiveType = PT_LINES;
+//    m_PrimitiveType = PT_LINE_STRIP;
+    
+	//绑定数据到VB中。
+	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER,
+                 m_VertexCount * sizeof(stShapeVertices),
+                 m_VertexArray,
+                 GL_STATIC_DRAW);
+    
+	//绑定数据到IB中。
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_IndexCount*sizeof(GLushort), m_IndiceArray, GL_STATIC_DRAW);
+	BuildShader();
+}
+
 //创建Shader
 void	C3DShape::BuildShader()
 {

@@ -39,6 +39,7 @@ private:
 	C3DShape*	m_pShape_Triangles;
     C3DShape*   m_pShape_MultiPoints;
     C3DShape*   m_pShape_CostomTriangle;
+    C3DShape*   m_pShape_puzzle;
 }
 ;
 #endif
