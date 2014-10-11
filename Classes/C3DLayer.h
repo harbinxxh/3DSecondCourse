@@ -37,6 +37,7 @@ private:
 	C3DShape*	m_pShape_Points;
 	C3DShape*	m_pShape_Lines;
 	C3DShape*	m_pShape_Triangles;
+    C3DShape*   m_pShape_MultiPoints;
 }
 ;
 #endif

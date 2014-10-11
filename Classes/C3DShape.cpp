@@ -119,6 +119,49 @@ void	C3DShape::CreateTriangles()
     
 	BuildShader();
 }
+
+//创建多个点
+void    C3DShape::CreateMultiPoints()
+{
+    Release();
+	//创建VB与IB
+	glGenBuffers(1, &m_VertexBuffer);
+	//创建数组并填充数据
+	m_VertexArray = new stShapeVertices[1000];
+	int _count=0;
+    //可以正常显示十行十列点
+    float row = -1.0;
+    for (int i = 1; i <= 10; ++i) {
+        float col = -1.0;
+        for (int j = 1; j <= 10; ++j) {
+            m_VertexArray[_count++].Position = Vec3(row,col,0);
+            col = col + 0.2;
+        }
+        row = row + 0.2;
+    }
+    
+    //此for循环后 显示结果为 少一第列的点
+//	for(float outer=-1.0f;outer<1.0f;outer+=0.2f)
+//	{
+//        CCLOG("outer : %f", outer);
+//        for(float inner=-1.0f;inner<1.0f;inner+=0.2f)
+//        {
+//            m_VertexArray[_count++].Position = Vec3(outer,inner,0);
+//        }
+//	}
+    
+	m_VertexCount = 100;
+	m_IndexCount  = 0;
+	m_PrimitiveType = PT_POINTS;
+	//绑定数据到VB中。
+	glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER,
+                 m_VertexCount * sizeof(stShapeVertices),
+                 m_VertexArray,
+                 GL_STATIC_DRAW);
+	BuildShader();
+}
+
 //创建Shader
 void	C3DShape::BuildShader()
 {

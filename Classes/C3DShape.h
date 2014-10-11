@@ -63,6 +63,8 @@ public:
 	void	CreateLines();
 	//创建三角形
 	void	CreateTriangles();
+    //创建多个点
+    void    CreateMultiPoints();
 	
 public:
 	//创建Shader
