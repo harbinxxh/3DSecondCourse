@@ -209,49 +209,78 @@ void    C3DShape::CreatePuzzle()
 	//创建VB与IB
 	glGenBuffers(1, &m_VertexBuffer);
 	glGenBuffers(1, &m_IndexBuffer);
-	//创建顶点数组
-	m_VertexArray = new stShapeVertices[2];
-    m_VertexArray[0].Position = Vec3(1,1,0);
-	m_VertexArray[1].Position = Vec3(1,-1,0);
-//	m_VertexArray[0].Position = Vec3(-1,-1,0);
-//	m_VertexArray[1].Position = Vec3(-1,1,0);
-//	m_VertexArray[2].Position = Vec3(1,1,0);
-//	m_VertexArray[3].Position = Vec3(1,-1,0);
-//	m_VertexArray[4].Position = Vec3(-1,-1,0);
     
-    //创建索引数组
-//	m_IndiceArray = new GLushort[5];
-//	m_IndiceArray[0] = 0;
-//	m_IndiceArray[1] = 1;
-//	m_IndiceArray[2] = 2;
-//	m_IndiceArray[3] = 3;
-//	m_IndiceArray[4] = 4;
-    
-    //创建数组并填充数据
-//	m_VertexArray = new stShapeVertices[100];
-//	int _count=0;
-//    //可以正常显示十行十列点
-//    float row = -1.0;
-//    for (int i = 1; i <= 10; ++i) {
-//        float col = -1.0;
-//        for (int j = 1; j <= 10; ++j) {
-//            m_VertexArray[_count++].Position = Vec3(row,col,0);
-//            col = col + 0.2;
-//        }
-//        row = row + 0.2;
-//    }
-    
+    //创建顶点数组并填充数据
+	m_VertexArray = new stShapeVertices[100];
+	int _count=0;
+    //可以正常显示十行十列点
+    float row = -1.0;
+    for (int i = 1; i <= 10; ++i) {
+        float col = -1.0;
+        for (int j = 1; j <= 10; ++j) {
+            m_VertexArray[_count++].Position = Vec3(row,col,0);
+            col = col + 0.2;
+        }
+        row = row + 0.2;
+    }
     
 	//创建索引数组
-	m_IndiceArray = new GLushort[2];
+	m_IndiceArray = new GLushort[100];
 	m_IndiceArray[0] = 0;
-	m_IndiceArray[1] = 1;
-//	m_IndiceArray[2] = 1;
-//	m_IndiceArray[3] = 2;
-//	m_IndiceArray[4] = 3;
+	m_IndiceArray[1] = 9;
+	m_IndiceArray[2] = 9;
+	m_IndiceArray[3] = 99;
+	m_IndiceArray[4] = 99;
+    m_IndiceArray[5] = 90;
+    m_IndiceArray[6] = 80;
+    m_IndiceArray[7] = 88;
+    m_IndiceArray[8] = 88;
+    m_IndiceArray[9] = 48;
+    m_IndiceArray[10] = 48;
+    m_IndiceArray[11] = 46;
+    m_IndiceArray[12] = 38;
+    m_IndiceArray[13] = 36;
+    m_IndiceArray[14] = 36;
+    m_IndiceArray[15] = 16;
+    m_IndiceArray[16] = 75;
+    m_IndiceArray[17] = 77;
+    m_IndiceArray[18] = 77;
+    m_IndiceArray[19] = 57;
+    m_IndiceArray[20] = 57;
+    m_IndiceArray[21] = 55;
+    m_IndiceArray[22] = 55;
+    m_IndiceArray[23] = 5;
+    m_IndiceArray[24] = 66;
+    m_IndiceArray[25] = 64;
+    m_IndiceArray[26] = 74;
+    m_IndiceArray[27] = 14;
+    m_IndiceArray[28] = 14;
+    m_IndiceArray[29] = 11;
+    m_IndiceArray[30] = 43;
+    m_IndiceArray[31] = 42;
+    m_IndiceArray[32] = 42;
+    m_IndiceArray[33] = 12;
+    m_IndiceArray[34] = 73;
+    m_IndiceArray[35] = 53;
+    m_IndiceArray[36] = 53;
+    m_IndiceArray[37] = 51;
+    m_IndiceArray[38] = 71;
+    m_IndiceArray[39] = 21;
+    m_IndiceArray[40] = 21;
+    m_IndiceArray[41] = 20;
+    m_IndiceArray[42] = 70;
+    m_IndiceArray[43] = 0;
+    m_IndiceArray[44] = 28;
+    m_IndiceArray[45] = 18;
+    m_IndiceArray[46] = 18;
+    m_IndiceArray[47] = 17;
+    m_IndiceArray[48] = 17;
+    m_IndiceArray[49] = 27;
+    m_IndiceArray[50] = 27;
+    m_IndiceArray[51] = 28;
     
-	m_VertexCount = 2;
-	m_IndexCount  = 2;
+	m_VertexCount = 100;
+	m_IndexCount  = 52;
 	m_PrimitiveType = PT_LINES;
 //    m_PrimitiveType = PT_LINE_STRIP;
     
