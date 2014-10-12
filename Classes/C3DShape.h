@@ -44,7 +44,7 @@ struct  stShapeVertices
 {
 	Vec3 		Position;	//位置
 	//kmVec3		Normal;	 	//法线
-	//kmVec3		Color;		//色彩
+	Vec3		Color;		//色彩
 }
 ;
 
@@ -68,7 +68,9 @@ public:
     //costom三角形
     void    CreateCostomTriangle();
     //绘制迷宫
-    void    CreatePuzzle();
+    void    CreatePuzzle(); //用线条绘制出一个小迷宫。
+    //绘制 用六个面绘制出一个立方体,通过修改 Z 值来观察透视效果
+    void    CreateCube();
 	
 public:
 	//创建Shader

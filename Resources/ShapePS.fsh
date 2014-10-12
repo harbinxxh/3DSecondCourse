@@ -4,5 +4,5 @@ uniform vec4  u_ShapeColor;
 void main()
 {
 	//返回像素化时的色彩值。
-	gl_FragColor   =  u_ShapeColor ;
+	gl_FragColor   =  u_ShapeColor;
 }

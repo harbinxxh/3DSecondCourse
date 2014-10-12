@@ -9,6 +9,7 @@ C3DLayer::C3DLayer()
     m_pShape_MultiPoints = NULL;
     m_pShape_CostomTriangle = NULL;
     m_pShape_puzzle = NULL;
+    m_pShape_Cube = NULL;
 }
 //析构
 C3DLayer::~C3DLayer()
@@ -19,6 +20,7 @@ C3DLayer::~C3DLayer()
     CC_SAFE_DELETE(m_pShape_MultiPoints);
     CC_SAFE_DELETE(m_pShape_CostomTriangle);
     CC_SAFE_DELETE(m_pShape_puzzle);
+    CC_SAFE_DELETE(m_pShape_Cube);
 }
 
 //初始化
@@ -39,8 +41,11 @@ bool C3DLayer::init()
 //    m_pShape_CostomTriangle = new C3DShape();
 //    m_pShape_CostomTriangle->CreateCostomTriangle();
     
-    m_pShape_puzzle = new C3DShape();
-    m_pShape_puzzle->CreatePuzzle();
+//    m_pShape_puzzle = new C3DShape();
+//    m_pShape_puzzle->CreatePuzzle();
+    
+    m_pShape_Cube = new C3DShape();
+    m_pShape_Cube->CreateCube();
     
 	return true;
 }
@@ -121,6 +126,10 @@ void	C3DLayer::Render3DWorld()
     
     if (m_pShape_puzzle) {
         m_pShape_puzzle->Render();
+    }
+    
+    if (m_pShape_Cube) {
+        m_pShape_Cube->Render();
     }
 }
 
