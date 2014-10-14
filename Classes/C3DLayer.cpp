@@ -41,11 +41,11 @@ bool C3DLayer::init()
 //    m_pShape_CostomTriangle = new C3DShape();
 //    m_pShape_CostomTriangle->CreateCostomTriangle();
     
-//    m_pShape_puzzle = new C3DShape();
-//    m_pShape_puzzle->CreatePuzzle();
+    m_pShape_puzzle = new C3DShape();
+    m_pShape_puzzle->CreatePuzzle();
     
-    m_pShape_Cube = new C3DShape();
-    m_pShape_Cube->CreateCube();
+//    m_pShape_Cube = new C3DShape();
+//    m_pShape_Cube->CreateCube();
     
 	return true;
 }
