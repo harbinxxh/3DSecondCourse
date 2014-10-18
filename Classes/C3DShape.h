@@ -44,9 +44,8 @@ struct  stShapeVertices
 {
 	Vec3 		Position;	//位置
 	//kmVec3		Normal;	 	//法线
-	Vec3		Color;		//色彩
-}
-;
+//	Vec3		Color;		//色彩
+};
 
 
 class C3DShape

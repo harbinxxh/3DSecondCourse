@@ -322,30 +322,6 @@ void C3DShape::CreateCube()
     
 	//创建索引数组
 	m_IndiceArray = new GLushort[100];
-//    m_IndiceArray[0] = 47;
-//	m_IndiceArray[1] = 77;
-//	m_IndiceArray[2] = 74;
-//
-//    m_IndiceArray[3] = 44;
-//	m_IndiceArray[4] = 47;
-//	m_IndiceArray[5] = 74;
-//
-//    m_IndiceArray[6] = 23;
-//	m_IndiceArray[7] = 74;
-//	m_IndiceArray[8] = 53;
-//
-//    m_IndiceArray[9] = 23;
-//	m_IndiceArray[10] = 44;
-//	m_IndiceArray[11] = 74;
-//    
-//    m_IndiceArray[12] = 23;
-//    m_IndiceArray[13] = 25;
-//    m_IndiceArray[14] = 47;
-//
-//    m_IndiceArray[15] = 23;
-//    m_IndiceArray[16] = 47;
-//    m_IndiceArray[17] = 44;
-    
     
     m_IndiceArray[0] = 47;
     m_IndiceArray[1] = 77;
@@ -374,7 +350,6 @@ void C3DShape::CreateCube()
     
     m_VertexCount = 100;
     m_IndexCount = 18;
-//    m_IndexCount = 6;
 //    m_PrimitiveType = PT_TRIANGLE_STRIP;
     m_PrimitiveType = PT_TRIANGLES;
     
@@ -406,7 +381,7 @@ void	C3DShape::BuildShader()
 		//m_ShaderProgram->addAttribute("a_color", VERTEX_ATTRIB_COLOR);
         //设置图形的颜色 u_ShapeColor
 //        m_ShaderProgram->bindAttribLocation("a_color", VERTEX_ATTRIB_COLOR);
-//        m_ShaderProgram->bindAttribLocation("u_ShapeColor", VERTEX_ATTRIB_COLOR);
+        m_ShaderProgram->bindAttribLocation("u_ShapeColor", VERTEX_ATTRIB_COLOR);
 		m_ShaderProgram->retain();
 	}
 }
@@ -424,7 +399,7 @@ void	C3DShape::Render()
         
 		//设置色彩
 //		ccColor4F s_tColor = ccc4f(1.0f,1.0f,0.0f,1.0f);
-        Color4F s_tColor = Color4F(0.0f,1.0f,0.0f,1.0f);
+        Color4F s_tColor = Color4F(1.0f,0.0f,0.0f,1.0f);
 		GLuint	  uColorId = glGetUniformLocation(m_ShaderProgram->getProgram(), "u_ShapeColor");
 		m_ShaderProgram->setUniformLocationWith4fv(uColorId,(GLfloat*) &s_tColor.r, 1);
         
@@ -438,9 +413,9 @@ void	C3DShape::Render()
 		//指定结构中位置信息的起始地址和占用大小
 		glVertexAttribPointer(VERTEX_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, kShapeVertexStructSize, (GLvoid*) offsetof( stShapeVertices, Position));
 		//开启顶点中法线信息的使用
-		//glEnableVertexAttribArray(VERTEX_ATTRIB_NORMAL);
+//		glEnableVertexAttribArray(VERTEX_ATTRIB_NORMAL);
 		//指定结构中法线信息的起始地址和占用大小
-		//glVertexAttribPointer(VERTEX_ATTRIB_NORMAL, 3, GL_FLOAT, GL_FALSE, kShapeVertexStructSize, (GLvoid*) offsetof( stShapeVertices, Normal));
+//		glVertexAttribPointer(VERTEX_ATTRIB_NORMAL, 3, GL_FLOAT, GL_FALSE, kShapeVertexStructSize, (GLvoid*) offsetof( stShapeVertices, Normal));
 		//开启顶点中颜色信息的使用
 //		glEnableVertexAttribArray(VERTEX_ATTRIB_COLOR);
 		//指定结构中颜色信息的起始地址和占用大小

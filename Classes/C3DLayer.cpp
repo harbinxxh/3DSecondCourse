@@ -32,8 +32,8 @@ bool C3DLayer::init()
 //    m_pShape_Lines = new C3DShape();
 //    m_pShape_Lines->CreateLines();
     
-//    m_pShape_Triangles = new C3DShape();
-//    m_pShape_Triangles->CreateTriangles();
+    m_pShape_Triangles = new C3DShape();
+    m_pShape_Triangles->CreateTriangles();
     
 //    m_pShape_MultiPoints = new C3DShape();
 //    m_pShape_MultiPoints->CreateMultiPoints();
@@ -41,8 +41,8 @@ bool C3DLayer::init()
 //    m_pShape_CostomTriangle = new C3DShape();
 //    m_pShape_CostomTriangle->CreateCostomTriangle();
     
-    m_pShape_puzzle = new C3DShape();
-    m_pShape_puzzle->CreatePuzzle();
+//    m_pShape_puzzle = new C3DShape();
+//    m_pShape_puzzle->CreatePuzzle();
     
 //    m_pShape_Cube = new C3DShape();
 //    m_pShape_Cube->CreateCube();
