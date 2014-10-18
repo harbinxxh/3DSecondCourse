@@ -381,7 +381,7 @@ void	C3DShape::BuildShader()
 		//m_ShaderProgram->addAttribute("a_color", VERTEX_ATTRIB_COLOR);
         //设置图形的颜色 u_ShapeColor
 //        m_ShaderProgram->bindAttribLocation("a_color", VERTEX_ATTRIB_COLOR);
-        m_ShaderProgram->bindAttribLocation("u_ShapeColor", VERTEX_ATTRIB_COLOR);
+//        m_ShaderProgram->bindAttribLocation("u_ShapeColor", VERTEX_ATTRIB_COLOR);
 		m_ShaderProgram->retain();
 	}
 }
